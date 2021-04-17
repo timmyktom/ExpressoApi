@@ -28,7 +28,8 @@ namespace ExpressoNewApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddDbContext<ExpressoDbContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpressDb;"));
+            //services.AddDbContext<ExpressoDbContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ExpressDb;"));
+            services.AddDbContext<ExpressoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ExpressoDbString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
